@@ -1,0 +1,223 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #08080d;
+    color: white;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Main container */
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+/* Progress number */
+
+.progress {
+    position: absolute;
+    top: 35px;
+    right: 40px;
+    color: #d99aaa;
+    font-family: Arial, sans-serif;
+    letter-spacing: 3px;
+}
+
+/* Slides */
+
+.slide {
+    position: absolute;
+    width: 90%;
+    max-width: 750px;
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(60px) scale(0.96);
+
+    transition: all 0.7s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+}
+
+/* Text content */
+
+.content {
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 35px rgba(224, 105, 145, 0.08);
+}
+
+.small-text {
+    color: #e7a2b5;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    font-weight: normal;
+    margin-bottom: 30px;
+
+    color: #f5d9e2;
+
+    text-shadow:
+        0 0 20px rgba(255, 130, 170, 0.3);
+}
+
+.message {
+    font-size: clamp(16px, 2.5vw, 20px);
+    line-height: 1.9;
+    color: #ded9df;
+    max-width: 650px;
+    margin: auto;
+}
+
+.signature {
+    color: #e9a4b8;
+    font-style: italic;
+    margin-top: 30px;
+    font-size: 17px;
+}
+
+.final-text {
+    color: #f2b3c6;
+    font-size: 26px;
+    margin-top: 30px;
+    font-weight: normal;
+}
+
+/* Buttons */
+
+.navigation {
+    position: absolute;
+    bottom: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-btn {
+    padding: 13px 27px;
+    border-radius: 30px;
+    border: 1px solid #b97b91;
+    color: white;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #a64d70;
+    box-shadow: 0 0 20px #a64d70;
+    transform: translateY(-3px);
+}
+
+.nav-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.swipe-hint {
+    position: absolute;
+    bottom: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #8d818b;
+    letter-spacing: 2px;
+}
+
+/* Floating hearts */
+
+.background-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    color: #d9799b;
+    opacity: 0;
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.5;
+    }
+
+    85% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsive */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 15px;
+    }
+
+    .content {
+        padding: 25px 18px;
+    }
+
+    .progress {
+        top: 20px;
+        right: 20px;
+    }
+
+    .navigation {
+        bottom: 65px;
+    }
+
+    .nav-btn {
+        padding: 12px 20px;
+    }
+
+    .message {
+        line-height: 1.65;
+    }
+}
